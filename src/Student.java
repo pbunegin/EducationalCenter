@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -5,12 +6,14 @@ import java.util.List;
 public class Student  implements Comparable<Student>{
     private String name;
     private Curriculum curriculum;
-    private List<Integer> marks;
-    private float avgMark;
+    private List<Integer> marks = new ArrayList<>();
+    private double avgMark;
     private int endTraining;
 
-    public Student(String name) {
+    public Student(String name, Curriculum curriculum) {
         this.name = name;
+        this.curriculum = curriculum;
+        this.endTraining = countHour();
     }
 
     public Student(String name, Curriculum curriculum,List<Integer> marks) {
@@ -46,7 +49,7 @@ public class Student  implements Comparable<Student>{
         for (Integer m: marks){
             sumMark += m;
         }
-        avgMark = Math.round((sumMark/marks.size())*10)/10;
+        avgMark = Math.round((sumMark*1.0/marks.size())*10.0)/10.0;
     }
 
     public String getName() {
@@ -57,7 +60,7 @@ public class Student  implements Comparable<Student>{
         this.name = name;
     }
 
-    public float getAvgMark() {
+    public double getAvgMark() {
         return avgMark;
     }
 

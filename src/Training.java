@@ -13,20 +13,20 @@ public class Training {
     }
 
     private static void init() {
-        new Curriculum("J2EE Developer", new GregorianCalendar(2018, 11, 7),
+        Curriculum curriculum1 = new Curriculum("J2EE Developer", new GregorianCalendar(2018, 10, 7),
                 new Course("Технология Java Servlets", 16),
                 new Course("Struts Framework", 24),
                 new Course("Spring Framework", 48),
                 new Course("Hibernate", 20));
-        new Curriculum("Java Developer ", new GregorianCalendar(2018, 11, 14),
+        Curriculum curriculum2 = new Curriculum("Java Developer ", new GregorianCalendar(2018, 9, 30),
                 new Course("Обзор технологий Java", 8),
                 new Course("Библиотека JFC/Swing", 16),
                 new Course("Технология JDBC", 16),
                 new Course("Технология JAX", 52),
                 new Course("Библиотеки commons", 44));
 
-        studentSet.add(new Student("Ivanov Ivan"));
-        studentSet.add(new Student("Petrov Petr"));
+        studentSet.add(new Student("Ivanov Ivan", curriculum1));
+        studentSet.add(new Student("Petrov Petr",curriculum2));
     }
 
     private static void training() {
@@ -35,7 +35,7 @@ public class Training {
             Calendar current_date = new GregorianCalendar();
             int numberDay = current_date.get(Calendar.DAY_OF_YEAR) - start_date.get(Calendar.DAY_OF_YEAR);
             for (int i = 0; i < numberDay; i++) {
-                student.setMarks((int) (Math.random() * 4 + 1));
+                student.setMarks((int) (Math.random() * 4 + 2));
             }
         }
     }
