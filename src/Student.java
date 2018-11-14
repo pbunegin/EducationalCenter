@@ -21,6 +21,15 @@ public class Student  implements Comparable<Student>{
         this.curriculum = curriculum;
         this.marks = marks;
         this.endTraining = countHour();
+        this.avgMark = countAvgMark();
+    }
+
+    private double countAvgMark() {
+        int sumMark = 0;
+        for (Integer m: marks){
+            sumMark += m;
+        }
+        return sumMark*1.0/marks.size();
     }
 
     private int countHour() {
@@ -45,11 +54,7 @@ public class Student  implements Comparable<Student>{
 
     public void setMarks(int mark) {
         this.marks.add(mark);
-        int sumMark = 0;
-        for (Integer m: marks){
-            sumMark += m;
-        }
-        avgMark = sumMark*1.0/marks.size();
+        countAvgMark();
     }
 
     public String getName() {
@@ -70,17 +75,13 @@ public class Student  implements Comparable<Student>{
 
     @Override
     public String toString() {
-        int sumMark = 0;
-        for (Integer m: marks){
-            sumMark += m;
-        }
-        sumMark = curriculum.getDuration()/8*5;
-        double temp =  sumMark*1.0/(curriculum.getDuration()/8);
         return name +
                 " - До окончания обучения по программе " + curriculum.getName() +
                 " осталось " + endTraining + "ч." +
                 " Средний балл " + String.format("%.1f", avgMark) + ". " +
-                (temp < 4.5 ? "Отчислить" : (temp == 4.5 ? "Вероятно может быть отчислен" : "Может продолжить обучение"));
+                ((avgMark+endTraining/8*5)/2 < 4.5 ?
+                        "Отчислить" : ((avgMark+endTraining/8*5)/2 == 4.5 ?
+                        "Вероятно может быть отчислен" : "Может продолжить обучение"));
     }
 
     @Override
