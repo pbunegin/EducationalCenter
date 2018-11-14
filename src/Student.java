@@ -49,7 +49,7 @@ public class Student  implements Comparable<Student>{
         for (Integer m: marks){
             sumMark += m;
         }
-        avgMark = Math.round((sumMark*1.0/marks.size())*10.0)/10.0;
+        avgMark = sumMark*1.0/marks.size();
     }
 
     public String getName() {
@@ -70,11 +70,17 @@ public class Student  implements Comparable<Student>{
 
     @Override
     public String toString() {
+        int sumMark = 0;
+        for (Integer m: marks){
+            sumMark += m;
+        }
+        sumMark = curriculum.getDuration()/8*5;
+        double temp =  sumMark*1.0/(curriculum.getDuration()/8);
         return name +
                 " - До окончания обучения по программе " + curriculum.getName() +
                 " осталось " + endTraining + "ч." +
                 " Средний балл " + String.format("%.1f", avgMark) + ". " +
-                (avgMark < 4.5 ? "Отчислить" : "Может продолжить обучение");
+                (temp < 4.5 ? "Отчислить" : (temp == 4.5 ? "Вероятно может быть отчислен" : "Может продолжить обучение"));
     }
 
     @Override
