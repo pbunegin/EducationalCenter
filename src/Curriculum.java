@@ -1,8 +1,10 @@
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.*;
 
 public class Curriculum {
     private String name;
-    private Calendar start_date;
+    private LocalDate start_date;
     private List<Course> courseList;
     private int duration;
 
@@ -13,7 +15,13 @@ public class Curriculum {
 //        this.duration = sumDurationCourse();
 //    }
 
-    public Curriculum(String name,Calendar start_date, Course... list) {
+
+    public Curriculum(String name, LocalDate start_date) {
+        this.name = name;
+        this.start_date = start_date;
+    }
+
+    public Curriculum(String name, LocalDate start_date, Course... list) {
         this.name = name;
         this.start_date = start_date;
         this.courseList = Arrays.asList(list);
@@ -37,11 +45,11 @@ public class Curriculum {
         this.name = name;
     }
 
-    public Calendar getStart_date() {
+    public LocalDate getStart_date() {
         return start_date;
     }
 
-    public void setStart_date(Calendar start_date) {
+    public void setStart_date(LocalDate start_date) {
         this.start_date = start_date;
     }
 

@@ -1,0 +1,54 @@
+Courses
+Технология Java Servlets - 32
+Struts Framework - 32
+Spring Framework - 24
+Hibernate - 8
+Обзор технологий Java - 56
+Библиотека JFC/Swing - 48
+Технология JDBC - 32
+Технология JAX - 24
+Библиотеки commons - 16
+Java WEB basics - 8
+Servlet API - 48
+Servlet containers - 32
+Apache Tomcat - 24
+Spring Core - 16
+Spring AOP - 32
+Spring Boot - 56
+Spring MVC - 32
+JSP - 8
+WebSockets - 8
+Databases - 16
+Databases Advanced - 24
+ORM - 24
+JPA - 48
+Spring Data - 56
+Hibernate - 32
+MyBatis - 24
+Microservices - 16
+Spring Core Integration: Web services - 24
+Spring Core Integration: SOAP - 32
+Spring Core Integration: REST - 48
+Spring Core Integration: Clients - 16
+Spring Core Integration: SoapUI - 24
+Spring Core Integration: Caching - 8
+Spring Core Integration: JDBC - 16
+Spring Core Integration:  JDBC-template - 8
+HTML, CSS, JS basics - 24
+end
+Curriculum
+Java Developer - 2018-10-10
+J2EE Developer - 2018-09-20
+Java Web - 2018-11-11
+Developer - 2018-09-25
+Java EE - 2018-10-22
+Front-end - 2018-08-14
+Back-end - 2018-09-06
+end
+Students
+Ivanov Ivan
+Petrov Petr
+Sidorov Sidr
+Antonov Anton
+Kirillov Kirill
+end

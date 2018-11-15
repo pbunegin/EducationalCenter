@@ -1,0 +1,58 @@
+STUDENT: Ivanov Ivan
+CURRICULUM: J2EE Developer
+START_DATE: 21.10.2018
+COURSE                      DURATION (hrs)
+1. Технология Java Servlets 16
+2. Struts Framework         24
+3. Spring Framework         48
+4. Hibernate                20
+MARKS 3, 4, 2, 5, 3, 3
+STUDENT: Petrov Petr
+CURRICULUM: Java Developer
+START_DATE: 29.09.2018
+COURSE                      DURATION (hrs)
+1. Обзор технологий Java    8
+2. Библиотека JFC/Swing     16
+3. Технология JDBC          16
+4. Технология JAX           52
+5. Библиотеки commons       44
+MARKS 4, 5, 3, 2, 3, 3, 5, 5
+STUDENT: Sidorov Sidr
+CURRICULUM: Java Web Developer
+START_DATE: 10.09.2018
+COURSE                      DURATION (hrs)
+1. Обзор технологий Java    8
+2. Библиотека JFC/Swing     16
+3. Технология JDBC          16
+4. Технология JAX           52
+5. Библиотеки commons       44
+6. Java WEB basics          32
+7. Servlet API              24
+8. Servlet containers       16
+9. Apache Tomcat            8
+MARKS 4, 5, 3, 2, 3, 3, 5, 5
+STUDENT: Кирилл Криллов
+CURRICULUM: Java EE
+START_DATE: 5.09.2018
+COURSE                      DURATION (hrs)
+1. Обзор технологий Java    8
+2. Библиотека JFC/Swing     16
+3. Технология JDBC          16
+4. Технология JAX           52
+5. Библиотеки commons       44
+6. Spring Core              24
+7. AOP                      16
+8. Boot                     40
+MARKS 4, 5, 3, 2, 3, 3, 5, 5
+STUDENT: Антон Антонов
+CURRICULUM: Developer
+START_DATE: 15.08.2018
+COURSE                      DURATION (hrs)
+1. Обзор технологий Java    8
+2. Библиотека JFC/Swing     16
+3. Технология JDBC          16
+4. Технология JAX           52
+5. Библиотеки commons       44
+
+MARKS
+4, 5, 3, 2, 3, 3, 5, 5

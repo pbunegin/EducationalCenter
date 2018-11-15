@@ -1,14 +1,20 @@
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
 
-public class Student  implements Comparable<Student>{
+public class Student{
     private String name;
     private Curriculum curriculum;
     private List<Integer> marks = new ArrayList<>();
     private double avgMark;
     private int endTraining;
+
+    public Student(String name) {
+        this.name = name;
+    }
 
     public Student(String name, Curriculum curriculum) {
         this.name = name;
@@ -33,9 +39,9 @@ public class Student  implements Comparable<Student>{
     }
 
     private int countHour() {
-        Calendar start_date = curriculum.getStart_date();
-        Calendar current_date = new GregorianCalendar();
-        int numberDay = current_date.get(Calendar.DAY_OF_YEAR) - start_date.get(Calendar.DAY_OF_YEAR);
+        LocalDate start_date = curriculum.getStart_date();
+        LocalDate current_date = LocalDate.now();
+        int numberDay = current_date.getDayOfYear() - start_date.getDayOfYear();
         return curriculum.getDuration() - numberDay * 8;
     }
 
@@ -54,7 +60,7 @@ public class Student  implements Comparable<Student>{
 
     public void setMarks(int mark) {
         this.marks.add(mark);
-        countAvgMark();
+        this.avgMark = countAvgMark();
     }
 
     public String getName() {
@@ -76,19 +82,11 @@ public class Student  implements Comparable<Student>{
     @Override
     public String toString() {
         return name +
-                " - До окончания обучения по программе " + curriculum.getName() +
+                " - До окончания обучения по программе " + (curriculum == null ? "Не указан учебный план!" : curriculum.getName()) +
                 " осталось " + endTraining + "ч." +
                 " Средний балл " + String.format("%.1f", avgMark) + ". " +
                 ((avgMark+endTraining/8*5)/2 < 4.5 ?
                         "Отчислить" : ((avgMark+endTraining/8*5)/2 == 4.5 ?
                         "Вероятно может быть отчислен" : "Может продолжить обучение"));
-    }
-
-    @Override
-    public int compareTo(Student o) {
-        int res = (int) (avgMark - o.getAvgMark());
-        if (res == 0)
-            res = endTraining - o.getEndTraining();
-        return res;
     }
 }
