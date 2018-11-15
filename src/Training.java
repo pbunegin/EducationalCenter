@@ -1,16 +1,13 @@
 import java.io.*;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class Training {
     private static List<Student> students = new ArrayList<>();
 
-
     public static void main(String[] args) {
         init();
-//        training();
         Collections.sort(students, new Comparator<Student>() {
             @Override
             public int compare(Student o1, Student o2) {
@@ -71,8 +68,7 @@ public class Training {
             student.setCurriculum(curriculums.get((int) (Math.random() * curriculums.size())));
         }
         training();
-
-        //        Curriculum curriculum1 = new Curriculum("J2EE Developer", new GregorianCalendar(2018, 10, 7),
+//        Curriculum curriculum1 = new Curriculum("J2EE Developer", new GregorianCalendar(2018, 10, 7),
 //                new Course("Технология Java Servlets", 16),
 //                new Course("Struts Framework", 24),
 //                new Course("Spring Framework", 48),
