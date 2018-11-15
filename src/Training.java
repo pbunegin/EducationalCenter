@@ -26,7 +26,8 @@ public class Training {
     private static void init() {
         List<Course> courses = new ArrayList<>();
         List<Curriculum> curriculums= new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream("C:\\Users\\petr_bunegin\\IdeaProjects\\EducationalCenter\\src\\list.txt")))) {
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(
+                new FileInputStream(Training.class.getResource("").getPath().substring(1)+"list.txt")))) {
             String str = "";
             while ((str = reader.readLine())!=null) {
                 switch (str) {
