@@ -68,20 +68,6 @@ public class Training {
             student.setCurriculum(curriculums.get((int) (Math.random() * curriculums.size())));
         }
         training();
-//        Curriculum curriculum1 = new Curriculum("J2EE Developer", new GregorianCalendar(2018, 10, 7),
-//                new Course("Технология Java Servlets", 16),
-//                new Course("Struts Framework", 24),
-//                new Course("Spring Framework", 48),
-//                new Course("Hibernate", 20));
-//        Curriculum curriculum2 = new Curriculum("Java Developer ", new GregorianCalendar(2018, 9, 30),
-//                new Course("Обзор технологий Java", 8),
-//                new Course("Библиотека JFC/Swing", 16),
-//                new Course("Технология JDBC", 16),
-//                new Course("Технология JAX", 52),
-//                new Course("Библиотеки commons", 44));
-//
-//        studentSet.add(new Student("Ivanov Ivan", curriculum1));
-//        studentSet.add(new Student("Petrov Petr",curriculum2));
     }
 
     private static void training() {
