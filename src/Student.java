@@ -2,7 +2,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Student{
+public class Student {
     private String name;
     private Curriculum curriculum;
     private List<Integer> marks = new ArrayList<>();
@@ -19,7 +19,7 @@ public class Student{
         this.endTraining = countHour();
     }
 
-    public Student(String name, Curriculum curriculum,List<Integer> marks) {
+    public Student(String name, Curriculum curriculum, List<Integer> marks) {
         this.name = name;
         this.curriculum = curriculum;
         this.marks = marks;
@@ -29,10 +29,10 @@ public class Student{
 
     private double countAvgMark() {
         int sumMark = 0;
-        for (Integer m: marks){
+        for (Integer m : marks) {
             sumMark += m;
         }
-        return sumMark*1.0/marks.size();
+        return sumMark * 1.0 / marks.size();
     }
 
     private int countHour() {
@@ -78,12 +78,12 @@ public class Student{
 
     @Override
     public String toString() {
+        int compareAvgMark = Double.compare((avgMark + endTraining / 8 * 5) / 2, 4.5);
         return name +
                 " - До окончания обучения по программе " + (curriculum == null ? "Не указан учебный план!" : curriculum.getName()) +
                 " осталось " + endTraining + "ч." +
                 " Средний балл " + String.format("%.1f", avgMark) + ". " +
-                ((avgMark+endTraining/8*5)/2 < 4.5 ?
-                        "Отчислить" : ((avgMark+endTraining/8*5)/2 == 4.5 ?
-                        "Вероятно может быть отчислен" : "Может продолжить обучение"));
+                (compareAvgMark == -1 ? "Отчислить" :
+                        (compareAvgMark == 0 ? "Вероятно может быть отчислен" : "Может продолжить обучение"));
     }
 }

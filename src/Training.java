@@ -1,4 +1,5 @@
 import java.io.*;
+import java.nio.charset.Charset;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -11,8 +12,10 @@ public class Training {
         Collections.sort(students, new Comparator<Student>() {
             @Override
             public int compare(Student o1, Student o2) {
-                return o1.getAvgMark()>o2.getAvgMark()?1:
-                        (o1.getAvgMark()<o2.getAvgMark()?-1:o1.getEndTraining()-o2.getEndTraining());
+                int res = Double.compare(o1.getAvgMark(),o2.getAvgMark());
+                if (res != 0)
+                    return res;
+                return o1.getEndTraining()-o2.getEndTraining();
             }
         });
         for (Student student : students) {
@@ -23,22 +26,20 @@ public class Training {
     private static void init() {
         List<Course> courses = new ArrayList<>();
         List<Curriculum> curriculums= new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(
-                new FileInputStream(Training.class.getResource("").getPath().substring(1)+"list.txt")))) {
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(
+                Training.class.getResource("").getPath().substring(1)+"list.txt"),Charset.forName("UTF-8")))) {
             String str = "";
             while ((str = reader.readLine())!=null) {
                 switch (str) {
                     case "Courses":
-                        while (true) {
-                            str = reader.readLine();
+                        while ((str = reader.readLine())!=null) {
                             if (str.equals("end"))
                                 break;
-                            courses.add(new Course(str.split("\\s+-\\s+")[0],Integer.valueOf(str.split("\\s+-\\s*")[1])));
+                            courses.add(new Course(str.split("\\s+-\\s+")[0],Integer.parseInt(str.split("\\s+-\\s*")[1])));
                         }
                         break;
                     case "Curriculum":
-                        while (true) {
-                            str = reader.readLine();
+                        while ((str = reader.readLine())!=null) {
                             if (str.equals("end"))
                                 break;
                             curriculums.add(new Curriculum(str.split("\\s+-\\s+")[0],
@@ -46,8 +47,7 @@ public class Training {
                         }
                         break;
                     case "Students":
-                        while (true) {
-                            str = reader.readLine();
+                        while ((str = reader.readLine())!=null) {
                             if (str.equals("end"))
                                 break;
                             students.add(new Student(str));
