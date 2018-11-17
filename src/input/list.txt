@@ -1,4 +1,4 @@
-Courses
+Course
 Технология Java Servlets - 32
 Struts Framework - 32
 Spring Framework - 24
@@ -45,7 +45,7 @@ Java EE - 2018-10-22
 Front-end - 2018-08-14
 Back-end - 2018-09-06
 end
-Students
+Student
 Ivanov Ivan
 Petrov Petr
 Sidorov Sidr

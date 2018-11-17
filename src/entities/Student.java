@@ -1,3 +1,5 @@
+package entities;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,15 +26,11 @@ public class Student {
         this.curriculum = curriculum;
         this.marks = marks;
         this.endTraining = countHour();
-        this.avgMark = countAvgMark();
+        this.avgMark = calcAvgMark();
     }
 
-    private double countAvgMark() {
-        int sumMark = 0;
-        for (Integer m : marks) {
-            sumMark += m;
-        }
-        return sumMark * 1.0 / marks.size();
+    private double calcAvgMark() {
+        return marks.stream().mapToDouble((s)->s).average().getAsDouble();
     }
 
     private int countHour() {
@@ -57,7 +55,7 @@ public class Student {
 
     public void setMarks(int mark) {
         this.marks.add(mark);
-        this.avgMark = countAvgMark();
+        this.avgMark = calcAvgMark();
     }
 
     public String getName() {
@@ -78,7 +76,7 @@ public class Student {
 
     @Override
     public String toString() {
-        int compareAvgMark = Double.compare((avgMark + endTraining / 8 * 5) / 2, 4.5);
+        int compareAvgMark = Double.compare((avgMark + endTraining / 8.0 * 5) / 2, 4.5);
         return name +
                 " - До окончания обучения по программе " + (curriculum == null ? "Не указан учебный план!" : curriculum.getName()) +
                 " осталось " + endTraining + "ч." +
